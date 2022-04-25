@@ -10,5 +10,6 @@ namespace Contacts.Infrastructure.Storages
         T Update(T entity);
         void Remove(T entity);
         void Remove(int id);
+        void Synchronize();
     }
 }

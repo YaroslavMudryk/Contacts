@@ -3,6 +3,7 @@
     public class Person : BaseModel
     {
         public string Name { get; set; }
+        public string Title { get; set; }
         public DateTime Birthday { get; set; }
         public string[] Email { get; set; }
         public string[] Phone { get; set; }

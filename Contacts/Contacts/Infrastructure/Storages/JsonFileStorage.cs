@@ -10,14 +10,20 @@ namespace Contacts.Infrastructure.Storages
 
         public JsonFileStorage()
         {
-            using var sr = new StreamReader(_path);
-            var jsonContent = sr.ReadToEnd();
-            sr.Close();
-            if (string.IsNullOrEmpty(jsonContent))
-                _items = new List<T>();
+            var stringPath = $"{typeof(T).Name.ToLower()}s.json";
+            _path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), stringPath);
+            if (File.Exists(_path))
+            {
+                using var sr = new StreamReader(_path);
+                var jsonContent = sr.ReadToEnd();
+                sr.Close();
+                if (string.IsNullOrEmpty(jsonContent))
+                    _items = new List<T>();
+                else
+                    _items = JsonSerializer.Deserialize<List<T>>(jsonContent);
+            }
             else
-                _items = JsonSerializer.Deserialize<List<T>>(jsonContent);
-            _path = $"{typeof(T).Name.ToLower()}s.json";
+                _items = new List<T>();
         }
 
         public T Create(T entity)
@@ -62,6 +68,21 @@ namespace Contacts.Infrastructure.Storages
             return entity;
         }
 
+        public void Dispose()
+        {
+            Synchronize();
+        }
+
+        public void Synchronize()
+        {
+            using var sw = new StreamWriter(_path);
+
+            var jsonContent = JsonSerializer.Serialize(_items);
+
+            sw.Write(jsonContent);
+
+            sw.Close();
+        }
 
         #region Private
 
@@ -77,17 +98,6 @@ namespace Contacts.Infrastructure.Storages
         {
             var device = DeviceInfo.Current;
             return $"{device.Name} ({device.Platform} {device.Version.Major})";
-        }
-
-        public void Dispose()
-        {
-            using var sw = new StreamWriter(_path);
-
-            var jsonContent = JsonSerializer.Serialize(_items);
-
-            sw.Write(jsonContent);
-
-            sw.Close();
         }
 
         #endregion
