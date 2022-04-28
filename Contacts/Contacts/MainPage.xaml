@@ -2,23 +2,37 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Contacts.MainPage">
-
     <Grid>
-        <Entry Placeholder="Пошук"
-               WidthRequest="70" HeightRequest="25"
-               VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
-        <Button Text="Додати" 
-                WidthRequest="70" HeightRequest="25"
-                />
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="110"/>
+        </Grid.ColumnDefinitions>
+        
+        <SearchBar Placeholder="Пошук"
+               HeightRequest="35"
+               VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+               Grid.Column="0" Grid.Row="0"/>
+        <Button Text="Додати" x:Name="btnAdd"
+                WidthRequest="100" HeightRequest="35"
+                Grid.Column="1" Grid.Row="0"
+                Clicked="btnAdd_Clicked"/>
         <ListView
-            Margin="0,30,0,0"
-                HasUnevenRows="True"
-                ItemsSource="{Binding _people}"
-                x:Name="personsListView"
+            HasUnevenRows="True"
+            ItemsSource="{Binding _people}"
+            x:Name="personsListView"
+            Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2"
             ItemSelected="personsListView_ItemSelected">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
+                        <ViewCell.ContextActions>
+                            <MenuItem x:Name="cmViewProfile" Text="Переглянути профіль" Command="{Binding cmViewProfile_Clicked}" Clicked="cmViewProfile_Clicked"/>
+                            <MenuItem x:Name="cmRemoveProfile" Text="Видалити" Command="{Binding cmRemoveProfile_Clicked}" Clicked="cmRemoveProfile_Clicked"/>
+                        </ViewCell.ContextActions>
                         <StackLayout>
                             <Label Padding="15" Text="{Binding Name}" FontSize="Large" />
                         </StackLayout>

@@ -13,7 +13,7 @@
 		<ApplicationTitle>Contacts</ApplicationTitle>
 
 		<!-- App Identifier -->
-		<ApplicationId>com.companyname.contacts</ApplicationId>
+		<ApplicationId>com.yarikproduction.contacts</ApplicationId>
 		<ApplicationId Condition="$(TargetFramework.Contains('-windows'))">E7C64B0C-AADB-4B66-83D8-16FADD276527</ApplicationId>
 
 		<!-- Versions -->
@@ -46,7 +46,13 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Infrastructure\Services\" />
+	  <None Remove="Resources\Raw\supported_devices.json" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="PersonView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	</ItemGroup>
 
 </Project>
