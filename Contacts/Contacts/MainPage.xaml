@@ -30,8 +30,8 @@
                 <DataTemplate>
                     <ViewCell>
                         <ViewCell.ContextActions>
-                            <MenuItem x:Name="cmViewProfile" Text="Переглянути профіль" Command="{Binding cmViewProfile_Clicked}" Clicked="cmViewProfile_Clicked"/>
-                            <MenuItem x:Name="cmRemoveProfile" Text="Видалити" Command="{Binding cmRemoveProfile_Clicked}" Clicked="cmRemoveProfile_Clicked"/>
+                            <MenuItem x:Name="caViewProfile" Text="Переглянути профіль" Clicked="caViewProfile_Clicked"/>
+                            <MenuItem x:Name="caRemoveProfile" Text="Видалити" Clicked="caRemoveProfile_Clicked"/>
                         </ViewCell.ContextActions>
                         <StackLayout>
                             <Label Padding="15" Text="{Binding Name}" FontSize="Large" />

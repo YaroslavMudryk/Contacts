@@ -66,18 +66,18 @@ public partial class MainPage : ContentPage
         await Navigation.PushAsync(new PersonView(_storage, PersonViewAction.Add, 0));
     }
 
-    public async void cmRemoveProfile_Clicked(object sender, EventArgs e)
+    private void caViewProfile_Clicked(object sender, EventArgs e)
     {
-        var res = await DisplayAlert("Система", $"Ви впевнені, що хочите видалити User?", "Так", "Ні");
+        var person = new Person();
+        Navigation.PushAsync(new PersonView(_storage, PersonViewAction.View, person.Id)).GetAwaiter().GetResult();
+    }
+
+    private void caRemoveProfile_Clicked(object sender, EventArgs e)
+    {
+        var res = DisplayAlert("Система", $"Ви впевнені, що хочите видалити User?", "Так", "Ні").GetAwaiter().GetResult();
         if (res)
         {
 
         }
-    }
-
-    public async void cmViewProfile_Clicked(object sender, EventArgs e)
-    {
-        var person = new Person();
-        await Navigation.PushAsync(new PersonView(_storage, PersonViewAction.View, person.Id));
     }
 }
