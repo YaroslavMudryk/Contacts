@@ -5,6 +5,7 @@ namespace Contacts.Infrastructure.Storages
     public interface IStorage<T> : IDisposable where T : BaseModel
     {
         List<T> GetAll(int offset, int count);
+        List<T> GetAll();
         T GetById(int id);
         T Create(T entity);
         T Update(T entity);

@@ -4,9 +4,9 @@
     {
         public string Name { get; set; }
         public string Title { get; set; }
-        public DateTime Birthday { get; set; }
-        public string[] Email { get; set; }
-        public string[] Phone { get; set; }
+        public DateTime? Birthday { get; set; }
+        public string[] Emails { get; set; }
+        public string[] Phones { get; set; }
         public string Hometown { get; set; }
         public string CityOfResidence { get; set; }
         public string About { get; set; }

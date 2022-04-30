@@ -40,6 +40,11 @@ namespace Contacts.Infrastructure.Storages
             return _items.OrderBy(x => x.Id).Skip(offset).Take(count).ToList();
         }
 
+        public List<T> GetAll()
+        {
+            return _items;
+        }
+
         public T GetById(int id)
         {
             return _items.FirstOrDefault(x => x.Id == id);

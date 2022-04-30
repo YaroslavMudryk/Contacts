@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Contacts.PersonView"
+             FlyoutItem.IsVisible="False"
+        Title="Contacts!">
+    <Grid Margin="10">
+
+        <!-- Entry Form -->
+        <Grid>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Button x:Name="actionButton"
+                        Clicked="actionButton_Clicked"
+                        Grid.Row="0" Grid.Column="0"
+                        HorizontalOptions="Start"/>
+                <Button x:Name="removeButton"
+                        Text="Видалити"
+                        BackgroundColor="Red"
+                        TextColor="{AppThemeBinding Dark=Yellow, Light=Black}"
+                        Clicked="removeButton_Clicked"
+                        Grid.Row="0" Grid.Column="1"
+                        HorizontalOptions="Start"/>
+
+                <Label Text="ID "
+                       Grid.Row="1" Grid.Column="0" />
+                <Label x:Name="eId"
+                       Grid.Row="1" Grid.Column="1" />
+                
+                <Label Text="Ім'я: "
+                       Grid.Row="2" Grid.Column="0" />
+                <Entry x:Name="eName"
+                       Grid.Row="2" Grid.Column="1" />
+
+                <Label Text="Підпис: "
+                       Grid.Row="3" Grid.Column="0" />
+                <Entry x:Name="eTitle"
+                       Grid.Row="3" Grid.Column="1" />
+
+                <Label Text="Др: "
+                       Grid.Row="4" Grid.Column="0" />
+                <DatePicker MinimumDate="1920/01/01" MaximumDate="2100/01/01" x:Name="dpBirthday"
+                       Grid.Row="4" Grid.Column="1" />
+
+                <Label Text="Пошти: "
+                       Grid.Row="5" Grid.Column="0" />
+                <Entry x:Name="eEmails"
+                       Grid.Row="5" Grid.Column="1" />
+
+                <Label Text="Телефони: "
+                       Grid.Row="6" Grid.Column="0" />
+                <Entry x:Name="ePhones"
+                       Grid.Row="6" Grid.Column="1" />
+
+                <Label Text="Рідне місто: "
+                       Grid.Row="7" Grid.Column="0" />
+                <Entry x:Name="eHometown"
+                       Grid.Row="7" Grid.Column="1" />
+
+                <Label Text="Місто проживання: "
+                       Grid.Row="8" Grid.Column="0" />
+                <Entry x:Name="eCityOfResidence"
+                       Grid.Row="8" Grid.Column="1" />
+
+                <Label Text="Про людину: "
+                       Grid.Row="9" Grid.Column="0" />
+                <Entry x:Name="eAbout"
+                       Grid.Row="9" Grid.Column="1" />
+
+                <Label Text="Банківськи карти: "
+                       Grid.Row="10" Grid.Column="0" />
+                <Entry x:Name="eBandCards"
+                       Grid.Row="10" Grid.Column="1" />
+
+                <Label Text="Номера машин: "
+                       Grid.Row="11" Grid.Column="0" />
+                <Entry x:Name="eCarNumbers"
+                       Grid.Row="11" Grid.Column="1" />
+
+                <Label Text="Освіта: "
+                       Grid.Row="12" Grid.Column="0" />
+                <Entry x:Name="eStudy"
+                       Grid.Row="12" Grid.Column="1" />
+
+                <Label Text="Робота: "
+                       Grid.Row="13" Grid.Column="0" />
+                <Entry x:Name="eWork"
+                       Grid.Row="13" Grid.Column="1" />
+            </Grid>
+        </Grid>
+    </Grid>
+</ContentPage>

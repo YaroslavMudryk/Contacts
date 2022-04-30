@@ -50,7 +50,13 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="PersonView.xaml">
+	  <Compile Update="PersonPage.xaml.cs">
+	    <DependentUpon>PersonPage.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="PersonPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

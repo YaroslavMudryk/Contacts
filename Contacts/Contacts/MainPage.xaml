@@ -12,10 +12,11 @@
             <ColumnDefinition Width="110"/>
         </Grid.ColumnDefinitions>
         
-        <SearchBar Placeholder="Пошук"
+        <SearchBar Placeholder="Пошук" x:Name="searchBar" TextChanged="searchBar_TextChanged"
                HeightRequest="35"
                VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
                Grid.Column="0" Grid.Row="0"/>
+        
         <Button Text="Додати" x:Name="btnAdd"
                 WidthRequest="100" HeightRequest="35"
                 Grid.Column="1" Grid.Row="0"
@@ -29,12 +30,8 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <ViewCell.ContextActions>
-                            <MenuItem x:Name="caViewProfile" Text="Переглянути профіль" Clicked="caViewProfile_Clicked"/>
-                            <MenuItem x:Name="caRemoveProfile" Text="Видалити" Clicked="caRemoveProfile_Clicked"/>
-                        </ViewCell.ContextActions>
-                        <StackLayout>
-                            <Label Padding="15" Text="{Binding Name}" FontSize="Large" />
+                        <StackLayout HeightRequest="30">
+                            <Label Padding="15,5,0,0" Text="{Binding Name}" FontSize="Default" HeightRequest="30"/>
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>
