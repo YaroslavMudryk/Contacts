@@ -7,7 +7,7 @@
     Shell.FlyoutBehavior="Disabled">
 
     <ShellContent
-        Title="Contacts!"
+        Title="Контакти"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
 
